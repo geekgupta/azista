@@ -9,6 +9,9 @@ import "chart.js/auto";
 function App() {
   const [data, setdata] = useState([{'a': 8} , {'b':5} , {'c': 3}]) ; 
 
+
+  const[show , setshow] = useState(false) ; 
+
   const data2 = {
     labels: data.map((item) => Object.keys(item)[0]),
     datasets: [
@@ -105,9 +108,14 @@ function App() {
         </div>
         
       </div>
+        <button class="btn btn-primary m-auto"  style = {{height: '50px' , width : '300px'}} onClick={()=>{setshow(!show)}}><h8>show chart</h8></button>
+        <div class = "mt-5"></div>
+       {show ? (
+
       <div class = "m-auto" style={{height : 600 , width : 600 }}>
         <Bar data={data2} />
         </div>
+      ) : null } 
 
       </div>
     </div>
